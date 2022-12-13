@@ -1,0 +1,29 @@
+pipeline {
+    agent any
+
+    stages {
+
+        stage('checkout') {
+            steps {
+                dir('hpx') {
+                    sh '''
+                    #!/bin/bash -l
+                    echo 'rm -rf * would be here, but I got scared and I removed it'
+                    '''
+                    checkout scm
+                    echo "Running ${env.BUILD_ID} on ${env.JENKINS_URL}"
+                }
+            }
+        }
+
+        stage('run') {
+            steps {
+                echo 'Starting run'
+                sh '''
+                #!/bin/bash -l
+                .jenkins/entry.sh
+                '''
+            }
+        }
+    }
+}
