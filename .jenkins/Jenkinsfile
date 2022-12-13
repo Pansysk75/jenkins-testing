@@ -19,10 +19,12 @@ pipeline {
         stage('run') {
             steps {
                 echo 'Starting run'
-                sh '''
-                #!/bin/bash -l
-                .jenkins/entry.sh
-                '''
+                dir('jenkins-testing'){
+                    sh '''
+                    #!/bin/bash -l
+                    .jenkins/entry.sh
+                    '''
+                }
             }
         }
     }
