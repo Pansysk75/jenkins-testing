@@ -1,3 +1,3 @@
 #!/bin/bash
 
-./script.py
+./.jenkins/script.py
