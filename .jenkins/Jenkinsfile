@@ -5,7 +5,7 @@ pipeline {
 
         stage('checkout') {
             steps {
-                dir('hpx') {
+                dir('jenkins-testing') {
                     sh '''
                     #!/bin/bash -l
                     echo 'rm -rf * would be here, but I got scared and I removed it'
